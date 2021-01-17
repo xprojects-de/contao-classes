@@ -2,6 +2,11 @@
 
 $GLOBALS['TL_LANG']['tl_alpdeskclasses']['title'] = ['Bezeichnung', 'Bezeichnung der Klasse'];
 $GLOBALS['TL_LANG']['tl_alpdeskclasses']['classvalue'] = ['Klassenwert', 'Wert der Klasse'];
+$GLOBALS['TL_LANG']['tl_alpdeskclasses']['classtype'] = ['Typ', 'Typ der Klasse'];
+$GLOBALS['TL_LANG']['tl_alpdeskclasses']['classtype_options'] = [
+    1 => 'Artikel',
+    2 => 'Inhaltselement',
+];
 
 $GLOBALS['TL_LANG']['tl_alpdeskclasses']['new'] = ['Neue Klasse', 'Neue Klasse hinzufügen'];
 $GLOBALS['TL_LANG']['tl_alpdeskclasses']['edit'] = ['Klasse bearbeiten', 'Bearbeite Klasse ID %s'];

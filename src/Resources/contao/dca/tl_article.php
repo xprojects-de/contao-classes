@@ -1,6 +1,8 @@
 <?php
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\Backend;
+use Alpdesk\AlpdeskClasses\Model\AlpdeskClassesModel;
 
 PaletteManipulator::create()
         ->addLegend('alpdeskclass_legend', 'syndication_legend', PaletteManipulator::POSITION_BEFORE, true)
@@ -23,10 +25,30 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['alpdeskclass'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_article']['alpdeskclass'],
     'exclude' => true,
     'inputType' => 'checkbox',
-    'foreignKey' => 'tl_alpdeskclasses.title',
+    'options_callback' => array('tl_article_alpdeskclasses', 'getArticleClasses'),
     'eval' => [
         'multiple' => true,
         'tl_class' => 'clr',
     ],
     'sql' => "mediumtext NULL"
 ];
+
+class tl_article_alpdeskclasses extends Backend {
+
+  public function getArticleClasses(DataContainer $dc) {
+
+    $data = [];
+
+    $classObjects = AlpdeskClassesModel::findAll();
+    if ($classObjects !== null) {
+      foreach ($classObjects as $classObject) {
+        if ($classObject->classtype == 1) {
+          $data[$classObject->id] = $classObject->title;
+        }
+      }
+    }
+
+    return $data;
+  }
+
+}

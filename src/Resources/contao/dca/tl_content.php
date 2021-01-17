@@ -2,6 +2,8 @@
 
 use Contao\DataContainer;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\Backend;
+use Alpdesk\AlpdeskClasses\Model\AlpdeskClassesModel;
 
 $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function (DataContainer $dc): void {
   foreach ($GLOBALS['TL_DCA'][$dc->table]['palettes'] as $key => $palette) {
@@ -29,10 +31,30 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['alpdeskclass'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['alpdeskclass'],
     'exclude' => true,
     'inputType' => 'checkbox',
-    'foreignKey' => 'tl_alpdeskclasses.title',
+    'options_callback' => array('tl_ce_alpdeskclasses', 'getElementClasses'),
     'eval' => [
         'multiple' => true,
         'tl_class' => 'clr',
     ],
     'sql' => "mediumtext NULL"
 ];
+
+class tl_ce_alpdeskclasses extends Backend {
+
+  public function getElementClasses(DataContainer $dc) {
+
+    $data = [];
+
+    $classObjects = AlpdeskClassesModel::findAll();
+    if ($classObjects !== null) {
+      foreach ($classObjects as $classObject) {
+        if ($classObject->classtype == 2) {
+          $data[$classObject->id] = $classObject->title;
+        }
+      }
+    }
+
+    return $data;
+  }
+
+}

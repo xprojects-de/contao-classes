@@ -21,7 +21,7 @@ $GLOBALS['TL_DCA']['tl_alpdeskclasses'] = [
             'panelLayout' => 'filter,search,limit'
         ],
         'label' => [
-            'fields' => ['title', 'classvalue'],
+            'fields' => ['title', 'classvalue', 'classtype'],
             'showColumns' => true,
         ],
         'global_operations' => [
@@ -52,7 +52,7 @@ $GLOBALS['TL_DCA']['tl_alpdeskclasses'] = [
         ]
     ],
     'palettes' => [
-        'default' => 'title,classvalue'
+        'default' => 'title,classvalue,classtype'
     ],
     'fields' => [
         'id' => [
@@ -78,6 +78,16 @@ $GLOBALS['TL_DCA']['tl_alpdeskclasses'] = [
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 250],
             'sql' => "varchar(250) NOT NULL default ''"
+        ],
+        'classtype' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_alpdeskclasses']['classtype'],
+            'exclude' => true,
+            'search' => true,
+            'inputType' => 'select',
+            'options' => [1, 2],
+            'reference' => &$GLOBALS['TL_LANG']['tl_alpdeskclasses']['classtype_options'],
+            'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 250],
+            'sql' => "int(10) unsigned NOT NULL default '0'"
         ]
     ]
 ];
