@@ -1,0 +1,42 @@
+{
+  "name": "alpdesk/contao-classes",
+  "description": "Classes for Contao 4",
+  "keywords": ["contao", "alpdesk", "classes"],
+  "type": "contao-bundle",
+  "version": "0.0.1",
+  "homepage": "https://github.com/xprojects-de/contao-classes",
+  "license": "LGPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "XProjects",
+      "homepage": "https://x-projects.de",
+      "email": "infos@x-projects.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/xprojects-de/contao-classes/issues"
+  },
+  "require": {
+    "php": ">=7.2",
+    "contao/core-bundle": "^4.9"
+  },
+  "conflict": {
+    "contao/manager-plugin": "<2.0 || >=3.0"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alpdesk\\AlpdeskClasses\\": "src/"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "Alpdesk\\AlpdeskClasses\\ContaoManager\\Plugin",
+    "contao-component-dir": "public"
+  },
+  "config": {
+    "contao-component-dir": "public"
+  }
+}
