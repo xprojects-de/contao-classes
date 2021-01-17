@@ -16,7 +16,7 @@ class HooksListener {
     if (TL_MODE == 'FE' && $objTemplate->type == 'article' && $objTemplate->hasAlpdeskclass == 1) {
 
       if ($objTemplate->alpdeskclass !== null && $objTemplate->alpdeskclass !== '') {
-        $classes = StringUtil::deserialize($objTemplate->alpdeskclass);
+        $classes = StringUtil::deserialize($objTemplate->alpdeskclass);        
         if (\count($classes) > 0) {
           foreach ($classes as $classid) {
             if ($classid !== '') {
@@ -34,9 +34,7 @@ class HooksListener {
   public function onGetContentElement(ContentModel $element, string $buffer, $el): string {
 
     if (TL_MODE == 'FE' && $element->hasAlpdeskclass == 1) {
-
-      $animationCss = $element->alpdeskclass;
-
+      
       if ($element->alpdeskclass !== null && $element->alpdeskclass != '') {
         $classes = StringUtil::deserialize($element->alpdeskclass);
         if (\count($classes) > 0) {
