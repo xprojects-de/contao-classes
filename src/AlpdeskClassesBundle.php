@@ -6,6 +6,6 @@ namespace Alpdesk\AlpdeskClasses;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AlpdeskClassesBundle extends Bundle {
-  
+class AlpdeskClassesBundle extends Bundle
+{
 }

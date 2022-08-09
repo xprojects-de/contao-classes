@@ -1,9 +1,12 @@
 {
   "name": "alpdesk/contao-classes",
   "description": "Classes for Contao 4",
-  "keywords": ["contao", "alpdesk", "classes"],
+  "keywords": [
+    "contao",
+    "alpdesk",
+    "classes"
+  ],
   "type": "contao-bundle",
-  "version": "0.0.2",
   "homepage": "https://github.com/xprojects-de/contao-classes",
   "license": "LGPL-3.0-or-later",
   "authors": [
@@ -18,14 +21,22 @@
     "issues": "https://github.com/xprojects-de/contao-classes/issues"
   },
   "require": {
-    "php": ">=7.2",
-    "contao/core-bundle": "^4.9"
+    "php": "^7.4 || ^8.0",
+    "contao/core-bundle": "^4.13 || ^5.0"
   },
   "conflict": {
     "contao/manager-plugin": "<2.0 || >=3.0"
   },
   "require-dev": {
-    "contao/manager-plugin": "^2.0"
+    "roave/security-advisories": "dev-latest",
+    "contao/manager-bundle": "^4.13 || ^5.0 ",
+    "contao/manager-plugin": "^2.0",
+    "phpstan/phpstan": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpstan/phpstan-symfony": "^1.0",
+    "slam/phpstan-extensions": "^6.0",
+    "phpunit/phpunit": "^9.5",
+    "symfony/phpunit-bridge": "^5.4 | ^6.0"
   },
   "autoload": {
     "psr-4": {
@@ -37,6 +48,12 @@
     "contao-component-dir": "public"
   },
   "config": {
-    "contao-component-dir": "public"
+    "contao-component-dir": "public",
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "contao-community-alliance/composer-plugin": true,
+      "contao-components/installer": true,
+      "contao/manager-plugin": true
+    }
   }
 }
