@@ -51,7 +51,7 @@ class tl_ce_alpdeskclasses extends Backend
 
             foreach ($classObjects as $classObject) {
 
-                if ($classObject->classtype == 2) {
+                if ((int)$classObject->classtype === 2) {
                     $data[$classObject->id] = $classObject->title;
                 }
 

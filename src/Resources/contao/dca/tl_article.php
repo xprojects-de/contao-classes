@@ -44,7 +44,7 @@ class tl_article_alpdeskclasses extends Backend
 
             foreach ($classObjects as $classObject) {
 
-                if ((int)$classObject->classtype == 1) {
+                if ((int)$classObject->classtype === 1) {
                     $data[$classObject->id] = $classObject->title;
                 }
 
