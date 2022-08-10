@@ -2,7 +2,7 @@
 
 ### GERMAN
 
-Mit dieser Erweiterung können übers Backend eigene CSS-Klassen für Artikel und Inhaltselemente definiert werden, welche dann vom Redakteur beim Artikel order Inhaltselement ausgewählt werden kann.
+Mit dieser Erweiterung können übers Backend eigene CSS-Klassen für Artikel und Inhaltselemente definiert werden, welche dann vom User beim Artikel oder Inhaltselement ausgewählt werden kann.
 
 ### ENGLISH
 
