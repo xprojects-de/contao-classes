@@ -1,10 +1,11 @@
 <?php
 
-use Alpdesk\AlpdeskParallax\Utils\AlpdeskParallaxUtils;
+use Contao\DataContainer;
+use Contao\DC_Table;
 
 $GLOBALS['TL_DCA']['tl_alpdeskclasses'] = [
     'config' => [
-        'dataContainer' => 'Table',
+        'dataContainer' => DC_Table::class,
         'switchToEdit' => true,
         'enableVersioning' => true,
         'sql' => [
@@ -15,9 +16,9 @@ $GLOBALS['TL_DCA']['tl_alpdeskclasses'] = [
     ],
     'list' => [
         'sorting' => [
-            'mode' => 1,
+            'mode' => DataContainer::MODE_SORTED,
             'fields' => ['title ASC'],
-            'flag' => 1,
+            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
             'panelLayout' => 'filter,search,limit'
         ],
         'label' => [

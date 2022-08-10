@@ -1,5 +1,8 @@
 services:
-    Alpdesk\AlpdeskClasses\Listener\HooksListener:
-        tags:
-            - { name: contao.hook, hook: parseTemplate, method: onParseTemplate, priority: 0 }
-            - { name: contao.hook, hook: getContentElement, method: onGetContentElement, priority: 0 }
+  Alpdesk\AlpdeskClasses\Listener\HooksListener:
+    arguments:
+      - '@contao.routing.scope_matcher'
+      - '@request_stack'
+    tags:
+      - { name: contao.hook, hook: parseTemplate, method: onParseTemplate, priority: 0 }
+      - { name: contao.hook, hook: getContentElement, method: onGetContentElement, priority: 0 }

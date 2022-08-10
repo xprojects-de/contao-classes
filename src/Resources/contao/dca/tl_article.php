@@ -5,9 +5,9 @@ use Contao\Backend;
 use Alpdesk\AlpdeskClasses\Model\AlpdeskClassesModel;
 
 PaletteManipulator::create()
-        ->addLegend('alpdeskclass_legend', 'syndication_legend', PaletteManipulator::POSITION_BEFORE, true)
-        ->addField('hasAlpdeskclass', 'alpdeskclass_legend', PaletteManipulator::POSITION_APPEND)
-        ->applyToPalette('default', 'tl_article');
+    ->addLegend('alpdeskclass_legend', 'syndication_legend', PaletteManipulator::POSITION_BEFORE, true)
+    ->addField('hasAlpdeskclass', 'alpdeskclass_legend', PaletteManipulator::POSITION_APPEND)
+    ->applyToPalette('default', 'tl_article');
 
 $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'hasAlpdeskclass';
 $GLOBALS['TL_DCA']['tl_article']['subpalettes']['hasAlpdeskclass'] = 'alpdeskclass';
@@ -33,22 +33,26 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['alpdeskclass'] = [
     'sql' => "mediumtext NULL"
 ];
 
-class tl_article_alpdeskclasses extends Backend {
+class tl_article_alpdeskclasses extends Backend
+{
+    public function getArticleClasses(DataContainer $dc)
+    {
+        $data = [];
 
-  public function getArticleClasses(DataContainer $dc) {
+        $classObjects = AlpdeskClassesModel::findAll();
+        if ($classObjects !== null) {
 
-    $data = [];
+            foreach ($classObjects as $classObject) {
 
-    $classObjects = AlpdeskClassesModel::findAll();
-    if ($classObjects !== null) {
-      foreach ($classObjects as $classObject) {
-        if ($classObject->classtype == 1) {
-          $data[$classObject->id] = $classObject->title;
+                if ((int)$classObject->classtype === 1) {
+                    $data[$classObject->id] = $classObject->title;
+                }
+
+            }
+
         }
-      }
-    }
 
-    return $data;
-  }
+        return $data;
+    }
 
 }
