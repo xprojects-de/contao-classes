@@ -18,6 +18,7 @@ class HooksListener
 
     /**
      * @param ScopeMatcher $scopeMatcher
+     * @param RequestStack $requestStack
      */
     public function __construct(ScopeMatcher $scopeMatcher, RequestStack $requestStack)
     {
@@ -33,6 +34,10 @@ class HooksListener
         return $this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest());
     }
 
+    /**
+     * @param Template $objTemplate
+     * @return void
+     */
     public function onParseTemplate(Template $objTemplate): void
     {
         if (
@@ -67,6 +72,12 @@ class HooksListener
 
     }
 
+    /**
+     * @param ContentModel $element
+     * @param string $buffer
+     * @param $el
+     * @return string
+     */
     public function onGetContentElement(ContentModel $element, string $buffer, $el): string
     {
         if (
