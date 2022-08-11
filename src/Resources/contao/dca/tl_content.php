@@ -41,7 +41,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['alpdeskclass'] = [
 
 class tl_ce_alpdeskclasses extends Backend
 {
-    public function getElementClasses(DataContainer $dc)
+    /**
+     * @return array
+     */
+    public function getElementClasses(): array
     {
         $data = [];
 
