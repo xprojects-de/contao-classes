@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="dae8aaf6-aba4-4c13-b914-e7c200f370f8" name="Contao Classes" url="https://contao.local-latest:8890">
-        <fileTransfer mountedRoot="$PROJECT_DIR$/../../MAMPP/contao.local-latest/vendor/alpdesk" accessType="MOUNT" port="0" />
+        <fileTransfer mountedRoot="$PROJECT_DIR$/../../MAMPP/contao.local5-latest/vendor/alpdesk" accessType="MOUNT" port="0" />
       </webServer>
     </option>
   </component>
