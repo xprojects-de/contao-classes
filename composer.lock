@@ -340,16 +340,16 @@
         },
         {
             "name": "contao-components/ace",
-            "version": "1.29.0",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao-components/ace.git",
-                "reference": "5ebd167861b4a801fa764d8f877504b5a440c459"
+                "reference": "0b0c488529f863babb8dc7f3f7f498b29a558285"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contao-components/ace/zipball/5ebd167861b4a801fa764d8f877504b5a440c459",
-                "reference": "5ebd167861b4a801fa764d8f877504b5a440c459",
+                "url": "https://api.github.com/repos/contao-components/ace/zipball/0b0c488529f863babb8dc7f3f7f498b29a558285",
+                "reference": "0b0c488529f863babb8dc7f3f7f498b29a558285",
                 "shasum": ""
             },
             "require": {
@@ -369,9 +369,9 @@
             "description": "ACE code editor integration for Contao Open Source CMS",
             "support": {
                 "issues": "https://github.com/contao-components/ace/issues",
-                "source": "https://github.com/contao-components/ace/tree/1.29.0"
+                "source": "https://github.com/contao-components/ace/tree/1.30.0"
             },
-            "time": "2023-10-10T07:40:54+00:00"
+            "time": "2023-10-16T08:21:16+00:00"
         },
         {
             "name": "contao-components/chosen",
@@ -1022,16 +1022,16 @@
         },
         {
             "name": "contao/core-bundle",
-            "version": "5.2.3",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao/core-bundle.git",
-                "reference": "2e9fd4bfdc427564b5a5bf7b83e97304aa9dfc42"
+                "reference": "d280bcba299b4490ee20b0d2ceecc7e3423c328a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contao/core-bundle/zipball/2e9fd4bfdc427564b5a5bf7b83e97304aa9dfc42",
-                "reference": "2e9fd4bfdc427564b5a5bf7b83e97304aa9dfc42",
+                "url": "https://api.github.com/repos/contao/core-bundle/zipball/d280bcba299b4490ee20b0d2ceecc7e3423c328a",
+                "reference": "d280bcba299b4490ee20b0d2ceecc7e3423c328a",
                 "shasum": ""
             },
             "require": {
@@ -1233,7 +1233,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-10-09T10:09:55+00:00"
+            "time": "2023-10-17T10:15:07+00:00"
         },
         {
             "name": "contao/image",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "debril/feed-io",
-            "version": "v6.0.2",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexdebril/feed-io.git",
-                "reference": "102777904ad69b2c5ed41e9fd52e674901879612"
+                "reference": "0bde9ae2a611d7d36c5ba5afb291b174c2cccb27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexdebril/feed-io/zipball/102777904ad69b2c5ed41e9fd52e674901879612",
-                "reference": "102777904ad69b2c5ed41e9fd52e674901879612",
+                "url": "https://api.github.com/repos/alexdebril/feed-io/zipball/0bde9ae2a611d7d36c5ba5afb291b174c2cccb27",
+                "reference": "0bde9ae2a611d7d36c5ba5afb291b174c2cccb27",
                 "shasum": ""
             },
             "require": {
@@ -1485,9 +1485,9 @@
             ],
             "support": {
                 "issues": "https://github.com/alexdebril/feed-io/issues",
-                "source": "https://github.com/alexdebril/feed-io/tree/v6.0.2"
+                "source": "https://github.com/alexdebril/feed-io/tree/v6.0.3"
             },
-            "time": "2022-09-21T13:31:45+00:00"
+            "time": "2023-10-16T14:12:49+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3953,16 +3953,16 @@
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "a6dfb1194a2946fcdc1f38219445234f65b35c96"
+                "reference": "b6a5854368533df0295c5761a0253656a2e52d9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/a6dfb1194a2946fcdc1f38219445234f65b35c96",
-                "reference": "a6dfb1194a2946fcdc1f38219445234f65b35c96",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/b6a5854368533df0295c5761a0253656a2e52d9e",
+                "reference": "b6a5854368533df0295c5761a0253656a2e52d9e",
                 "shasum": ""
             },
             "require": {
@@ -3993,7 +3993,7 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.13.0"
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.14.0"
             },
             "funding": [
                 {
@@ -4005,7 +4005,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-05T12:09:49+00:00"
+            "time": "2023-10-17T14:13:20+00:00"
         },
         {
             "name": "league/uri",
@@ -12107,7 +12107,7 @@
     "packages-dev": [
         {
             "name": "contao/manager-bundle",
-            "version": "5.2.3",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao/manager-bundle.git",
@@ -12457,16 +12457,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.38",
+            "version": "1.10.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "5302bb402c57f00fb3c2c015bac86e0827e4b691"
+                "reference": "d9dedb0413f678b4d03cbc2279a48f91592c97c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/5302bb402c57f00fb3c2c015bac86e0827e4b691",
-                "reference": "5302bb402c57f00fb3c2c015bac86e0827e4b691",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d9dedb0413f678b4d03cbc2279a48f91592c97c4",
+                "reference": "d9dedb0413f678b4d03cbc2279a48f91592c97c4",
                 "shasum": ""
             },
             "require": {
@@ -12515,7 +12515,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-06T14:19:14+00:00"
+            "time": "2023-10-17T15:46:26+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -13069,12 +13069,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "efd339340c840237fad050f3ea6fd8bbbbfc7ed6"
+                "reference": "c8ae106748275c5feb622b72dce28a0427770f4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/efd339340c840237fad050f3ea6fd8bbbbfc7ed6",
-                "reference": "efd339340c840237fad050f3ea6fd8bbbbfc7ed6",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c8ae106748275c5feb622b72dce28a0427770f4f",
+                "reference": "c8ae106748275c5feb622b72dce28a0427770f4f",
                 "shasum": ""
             },
             "conflict": {
@@ -13214,7 +13214,7 @@
                 "ezsystems/ezplatform-richtext": ">=2.3,<2.3.7.1-dev",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
                 "ezsystems/ezpublish-kernel": "<6.13.8.2-dev|>=7,<7.5.30",
-                "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.6,<=2019.03.5.1",
+                "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.06,<=2019.03.5.1",
                 "ezsystems/platform-ui-assets-bundle": ">=4.2,<4.2.3",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1-dev|>=2.5,<2.5.15",
                 "ezyang/htmlpurifier": "<4.1.1",
@@ -13352,7 +13352,7 @@
                 "magento/magento1ee": ">=1,<1.14.4.3-dev",
                 "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2.0-patch2",
                 "maikuolan/phpmussel": ">=1,<1.6",
-                "mantisbt/mantisbt": "<=2.25.5",
+                "mantisbt/mantisbt": "<=2.25.7",
                 "marcwillmann/turn": "<0.3.3",
                 "matyhtf/framework": "<3.0.6",
                 "mautic/core": "<4.3",
@@ -13504,7 +13504,7 @@
                 "silverstripe/comments": ">=1.3,<1.9.99|>=2,<2.9.99|>=3,<3.1.1",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
                 "silverstripe/framework": "<4.13.14|>=5,<5.0.13",
-                "silverstripe/graphql": "<3.5.2|>=4.0.0.0-alpha1,<4.0.0.0-alpha2|>=4.1.1,<4.1.2|>=4.2.2,<4.2.3",
+                "silverstripe/graphql": "<3.8.2|>=4,<4.1.3|>=4.2,<4.2.5|>=4.3,<4.3.4|>=5,<5.0.3",
                 "silverstripe/hybridsessions": ">=1,<2.4.1|>=2.5,<2.5.1",
                 "silverstripe/recipe-cms": ">=4.5,<4.5.3",
                 "silverstripe/registry": ">=2.1,<2.1.2|>=2.2,<2.2.1",
@@ -13742,7 +13742,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-11T21:04:21+00:00"
+            "time": "2023-10-18T17:04:20+00:00"
         },
         {
             "name": "sebastian/cli-parser",

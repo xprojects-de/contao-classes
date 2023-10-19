@@ -42,7 +42,7 @@ class tl_article_alpdeskclasses extends Backend
     {
         $data = [];
 
-        $classObjects = AlpdeskClassesModel::findAll();
+        $classObjects = AlpdeskClassesModel::findAll(['order' => 'title ASC']);
         if ($classObjects !== null) {
 
             foreach ($classObjects as $classObject) {
