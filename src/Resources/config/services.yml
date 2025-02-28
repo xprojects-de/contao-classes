@@ -4,5 +4,5 @@ services:
       - '@contao.routing.scope_matcher'
       - '@request_stack'
     tags:
-      - { name: contao.hook, hook: parseTemplate, method: onParseTemplate, priority: 0 }
-      - { name: contao.hook, hook: getContentElement, method: onGetContentElement, priority: 0 }
+      - { name: contao.hook, hook: getArticle, method: onGetArticle, priority: 0 }
+      - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
