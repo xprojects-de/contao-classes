@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Alpdesk\AlpdeskClasses\Listener;
 
+use Contao\ArticleModel;
 use Contao\ContentModel;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\StringUtil;
 use Alpdesk\AlpdeskClasses\Model\AlpdeskClassesModel;
-use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class HooksListener
 {
@@ -26,41 +28,41 @@ class HooksListener
         $this->requestStack = $requestStack;
     }
 
-    /**
-     * @return bool
-     */
-    private function isFrontend(): bool
+    public function onGetArticle(ArticleModel $articleModel): void
     {
-        return $this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest());
-    }
+        if (!$this->requestStack->getCurrentRequest() instanceof Request) {
+            return;
+        }
 
-    /**
-     * @param Template $objTemplate
-     * @return void
-     */
-    public function onParseTemplate(Template $objTemplate): void
-    {
-        if (
-            $this->isFrontend() &&
-            $objTemplate->type === 'article' &&
-            (int)$objTemplate->hasAlpdeskclass === 1
-        ) {
+        if (!$this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest())) {
+            return;
+        }
 
-            if ($objTemplate->alpdeskclass !== null && $objTemplate->alpdeskclass !== '') {
+        if ((int)$articleModel->hasAlpdeskclass === 1) {
 
-                $classes = StringUtil::deserialize($objTemplate->alpdeskclass);
-                if (\is_array($classes) && \count($classes) > 0) {
+            $alpdeskClasses = $articleModel->alpdeskclass ?? null;
 
-                    foreach ($classes as $classid) {
+            if (\is_string($alpdeskClasses) && $alpdeskClasses !== '') {
 
-                        if ($classid !== '') {
+                $classes = StringUtil::deserialize($alpdeskClasses, true);
+                if (\count($classes) > 0) {
 
-                            $classObject = AlpdeskClassesModel::findById((int)$classid);
-                            if ($classObject !== null) {
-                                $objTemplate->class .= ' ' . $classObject->classvalue;
-                            }
+                    $customClasses = [];
 
+                    foreach ($classes as $classId) {
+
+                        $classObject = AlpdeskClassesModel::findById((int)$classId);
+                        if ($classObject !== null) {
+                            $customClasses[] = ($classObject->classvalue ?? '');
                         }
+
+                    }
+
+                    if (\count($customClasses) > 0) {
+
+                        $articleModelClasses = StringUtil::deserialize($articleModel->cssID, true);
+                        $articleModelClasses[1] .= ' ' . \implode(' ', $customClasses);
+                        $articleModel->cssID = \serialize($articleModelClasses);
 
                     }
 
@@ -72,50 +74,71 @@ class HooksListener
 
     }
 
-    /**
-     * @param ContentModel $element
-     * @param string $buffer
-     * @param $el
-     * @return string
-     */
-    public function onGetContentElement(ContentModel $element, string $buffer, $el): string
+    public function onKernelResponse(ResponseEvent $event): void
     {
-        if (
-            $this->isFrontend() &&
-            (int)$element->hasAlpdeskclass === 1
-        ) {
+        $request = $event->getRequest();
 
-            if ($element->alpdeskclass !== null && $element->alpdeskclass != '') {
+        if (!$this->scopeMatcher->isFrontendRequest($request)) {
+            return;
+        }
 
-                $classes = StringUtil::deserialize($element->alpdeskclass);
+        if (!$request->attributes->has('contentModel')) {
+            return;
+        }
+
+        $contentModel = $request->attributes->get('contentModel');
+
+        if (!$contentModel instanceof ContentModel) {
+            $contentModel = ContentModel::findByPk($contentModel);
+        }
+
+        if ((int)$contentModel->hasAlpdeskclass === 1) {
+
+            $alpdeskClasses = $contentModel->alpdeskclass ?? null;
+
+            if ($alpdeskClasses !== null && $alpdeskClasses !== '') {
+
+                $classes = StringUtil::deserialize($alpdeskClasses);
                 if (\is_array($classes) && \count($classes) > 0) {
 
-                    $classesToAppend = [];
-                    foreach ($classes as $classid) {
+                    $customClasses = [];
 
-                        if ($classid !== '') {
+                    foreach ($classes as $classId) {
 
-                            $classObject = AlpdeskClassesModel::findById((int)$classid);
+                        if ($classId !== '') {
+
+                            $classObject = AlpdeskClassesModel::findById((int)$classId);
                             if ($classObject !== null) {
-                                $classesToAppend[] = $classObject->classvalue;
+                                $customClasses[] = $classObject->classvalue;
                             }
 
                         }
 
                     }
 
-                    if (\count($classesToAppend) > 0) {
+                    if (\count($customClasses) > 0) {
 
-                        $finalClasses = \implode(' ', $classesToAppend);
-                        $buffer = \preg_replace_callback('|<([a-zA-Z0-9]+)(\s[^>]*?)?(?<!/)>|', function ($matches) use ($finalClasses) {
+                        $response = $event->getResponse();
+                        $content = $response->getContent();
+
+                        $finalClasses = \implode(' ', $customClasses);
+
+                        $content = \preg_replace_callback('|<([a-zA-Z0-9]+)(\s[^>]*?)?(?<!/)>|', static function ($matches) use ($finalClasses) {
+
                             $tag = $matches[1];
                             $attributes = $matches[2];
-                            $attributes = preg_replace('/class="([^"]+)"/', 'class="$1 ' . $finalClasses . '"', $attributes, 1, $count);
+
+                            $attributes = \preg_replace('/class="([^"]+)"/', 'class="$1 ' . $finalClasses . '"', $attributes, 1, $count);
                             if (0 === $count) {
                                 $attributes .= ' class="' . $finalClasses . '"';
                             }
+
                             return "<{$tag}{$attributes}>";
-                        }, $buffer, 1);
+
+                        }, $content, 1);
+
+                        $response->setContent($content);
+
                     }
 
                 }
@@ -123,8 +146,6 @@ class HooksListener
             }
 
         }
-
-        return $buffer;
 
     }
 

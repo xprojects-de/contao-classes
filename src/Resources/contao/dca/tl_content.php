@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Contao\DataContainer;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\Backend;
@@ -20,7 +22,6 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'hasAlpdeskclas
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['hasAlpdeskclass'] = 'alpdeskclass';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['hasAlpdeskclass'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['hasAlpdeskclass'],
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['submitOnChange' => true],
@@ -28,7 +29,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['hasAlpdeskclass'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['alpdeskclass'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['alpdeskclass'],
     'exclude' => true,
     'inputType' => 'checkbox',
     'options_callback' => array('tl_ce_alpdeskclasses', 'getElementClasses'),
