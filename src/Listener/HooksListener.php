@@ -125,7 +125,8 @@ class HooksListener
 
                         $content = \preg_replace_callback('|<([a-zA-Z0-9]+)(\s[^>]*?)?(?<!/)>|', static function ($matches) use ($finalClasses) {
 
-                            [$tag, $attributes] = $matches;
+                            $tag = $matches[1];
+                            $attributes = $matches[2];
 
                             $attributes = \preg_replace('/class="([^"]+)"/', 'class="$1 ' . $finalClasses . '"', $attributes, 1, $count);
                             if (0 === $count) {
